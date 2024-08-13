@@ -1,0 +1,72 @@
+/* athensPixel (pixel font) - it's used for most things */
+@font-face {
+  font-family: 'athensPixel';
+  src: url('./athenspixel.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #444444;
+}
+
+canvas {
+  display: block;
+}
+
+.webglCanvas {
+  width: 100svw;
+  height: 100svh;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.goBack {
+  position: absolute;
+  top:30px;
+  left:30px;
+  display: flex;
+  color: rgb(43, 107, 226);
+  transition: color 0.2s;
+}
+
+.goBack:hover {
+  color: rgb(111, 154, 235);
+}
+
+.goBack .arrowLeft {
+  width: 60px;
+}
+
+.goBack .text {
+  margin-left: 1.5rem;
+  font-family: 'athensPixel';
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .goBack .text {
+    margin-top: 1.5vw;
+    font-size: 5.5vw;
+  }
+}

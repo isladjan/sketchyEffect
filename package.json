@@ -1,0 +1,36 @@
+{
+  "name": "@isladjan/sketchy_effect",
+  "version": "1.0.0",
+  "description": "An sketchy pencil effect for THREE.js and post-processing (using vanilla THREE.js).",
+  "author": {
+    "name": "isladjan - ilic sladjan",
+    "url": "https://isladjan.com/"
+  },
+  "keywords": [
+    "sketchy pencil",
+    "three.js",
+    "postprocessing"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/isladjan/sketchyEffect",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isladjan/sketchyEffect.git",
+    "email": "isladjan83@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/isladjan/sketchyEffect/issues"
+  },
+  "main": "asciiEffect.min.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "three": "^0.167.1"
+  }
+}
