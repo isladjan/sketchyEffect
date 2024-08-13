@@ -1,6 +1,7 @@
 {
   "name": "@isladjan/sketchy_effect",
   "version": "1.0.0",
+  "private": true,
   "description": "An sketchy pencil effect for THREE.js and post-processing (using vanilla THREE.js).",
   "author": {
     "name": "isladjan - ilic sladjan",
