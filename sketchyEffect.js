@@ -1,8 +1,7 @@
-//https://tympanus.net/codrops/2022/11/29/sketchy-pencil-effect-with-three-js-post-processing/
+//https://github.com/mayacoda/pencil-lines/blob/main/src/pencil-lines/shaders/pencil-lines.frag
 
 import {ShaderMaterial, Vector2, WebGLRenderTarget, RGBAFormat,   NearestFilter, HalfFloatType,  MeshNormalMaterial } from 'three';
 import { Pass, FullScreenQuad } from 'three/examples/jsm/postprocessing/Pass';
-
 
 
 const vertexShader = `varying vec2 vUv;
@@ -153,28 +152,16 @@ void main() {
 }`;
 
 
-
-
-
-
-
-
 class PencilLinesShader extends ShaderMaterial {
   constructor() {
     super({
       uniforms: {
         uDiffuse: { value: null },
-        uResolution: {
-          value: new Vector2(1, 1)
-        },
+        uResolution: { value: new Vector2(1, 1)},
         uDepthBuffer: { value: null },
         uSurfaceBuffer: { value: null },
         uNear: { value: null },
         uFar: { value: null },
-
-        // uColorTexture: {
-        //   value: webgl.resources.getItem("colorNoiseTexture")
-        // },
         uCloudTexture: { value: webgl.texture.cloudNoise}
       },
       fragmentShader: fragmentShader,
@@ -223,18 +210,14 @@ export class SketchyEffectPass extends Pass {
   render(renderer, writeBuffer, readBuffer) {
     const depthBuffer = writeBuffer.depthBuffer
     writeBuffer.depthBuffer = false
-
     renderer.setRenderTarget(this.surfaceBuffer)
     const overrideMaterialValue = webgl.scene.overrideMaterial
-
     webgl.scene.overrideMaterial = this.normalMaterial
     renderer.render(webgl.scene, webgl.camera)
     webgl.scene.overrideMaterial = overrideMaterialValue
-
     this.material.uniforms.uDiffuse.value = readBuffer.texture
     this.material.uniforms.uDepthBuffer.value = readBuffer.depthTexture
     this.material.uniforms.uSurfaceBuffer.value = this.surfaceBuffer.texture
-    
 
     if (this.renderToScreen) {
       renderer.setRenderTarget(null)
